@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DemoGeeks</string>
+    <string name="string_hello">Hello World! </string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+
+</resources>
