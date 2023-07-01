@@ -3,5 +3,6 @@
     <string name="string_hello">Hello World! </string>
     <string name="login">Login</string>
     <string name="email">Email</string>
+    <string name="invalid_email">Invalid Email</string>
 
 </resources>
