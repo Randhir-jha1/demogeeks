@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
     private fun initUi(){
-        edtEmail= findViewById(R.id.edtEmail)
+       // edtEmail= findViewById(R.id.edtEmail)
         edtPass= findViewById(R.id.edtPassword)
         SignIn= findViewById(R.id.SignIn)
     }
