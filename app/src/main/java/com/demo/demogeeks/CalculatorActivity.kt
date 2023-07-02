@@ -69,7 +69,7 @@ class CalculatorActivity : AppCompatActivity(), View.OnClickListener {
                     numberClick("9")
                 }
                 R.id.btnAC->{
-                 number=null
+                    number=null
                     status=null
                     textViewResult.text="0"
                     texViewHistory.text=""
@@ -80,21 +80,21 @@ class CalculatorActivity : AppCompatActivity(), View.OnClickListener {
 
                 }
                 R.id.btnDel->{
-                   if (btnAcControl){
-                       textViewResult.text="0"
-                   }
+                    if (btnAcControl){
+                        textViewResult.text="0"
+                    }
                     else{
                         number=number?.substring(0,number!!.length-1)
                         if (number?.isEmpty()==true){
                             btnDel.isClickable=false
                         }else dot=!number?.contains(".")!!
-                       textViewResult.text=number
-                   }
+                        textViewResult.text=number
+                    }
                 }
                 R.id.btnPlus->{
                     history= texViewHistory.text.toString()
                     currentResult= textViewResult.text.toString()
-                    texViewHistory.text ="$history$currentResult"
+                    texViewHistory.text ="$history$currentResult+"
                     plus()
                     status="sum"
                     operator=false
@@ -103,7 +103,7 @@ class CalculatorActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.btnMinus->{
                     history= texViewHistory.text.toString()
                     currentResult= textViewResult.text.toString()
-                    texViewHistory.text ="$history$currentResult"
+                    texViewHistory.text ="$history$currentResult-"
                     minus()
                     status="subtraction"
                     operator=false
@@ -112,7 +112,7 @@ class CalculatorActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.btnMultiple->{
                     history= texViewHistory.text.toString()
                     currentResult= textViewResult.text.toString()
-                    texViewHistory.text ="$history$currentResult"
+                    texViewHistory.text ="$history$currentResult*"
                     multiply()
                     status="multiplication"
                     operator=false
@@ -120,45 +120,45 @@ class CalculatorActivity : AppCompatActivity(), View.OnClickListener {
                 } R.id.btnDivide->{
                 history= texViewHistory.text.toString()
                 currentResult= textViewResult.text.toString()
-                texViewHistory.text ="$history$currentResult"
+                texViewHistory.text ="$history$currentResult/"
                 divide()
                 status="division"
                 operator=false
                 number=null
-                }
+            }
                 R.id.btnEquals->{
-                  if (operator){
-                      when(status){
-                          "sum"->{
-                              plus()
-                          }
-                          "subtraction"->{
-                              minus()
-                          }
-                          "multiplication"->{
-                              multiply()
-                          }
-                          "division"->{
-                              divide()
-                          }
-                          else->{
-                            firstNumber= (textViewResult.text.toString()).toDouble()
-                          }
-                      }
-                  }
+                    if (operator){
+                        when(status){
+                            "sum"->{
+                                plus()
+                            }
+                            "subtraction"->{
+                                minus()
+                            }
+                            "multiplication"->{
+                                multiply()
+                            }
+                            "division"->{
+                                divide()
+                            }
+                            else->{
+                                firstNumber= (textViewResult.text.toString()).toDouble()
+                            }
+                        }
+                    }
                     operator=false
                     btnEqualsControl=true
                     texViewHistory.text=""
                 }
                 R.id.btnDot->{
-                 if(dot){
-                     if (number==null){
-                         number="0."
-                     }
-                     else{
-                         number+="."
-                     }
-                 }
+                    if(dot){
+                        if (number==null){
+                            number="0."
+                        }
+                        else{
+                            number+="."
+                        }
+                    }
                     textViewResult.text=number
                     dot=false
                 }
@@ -168,40 +168,40 @@ class CalculatorActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun numberClick(value: String) {
-       when{
-           number==null->{
-               number=value
-           }
-           btnEqualsControl->{
-               firstNumber =0.0
-               lastNumber=0.0
-               number= value
-           }
-           else->{
-               number+=value
-           }
-       }
-       textViewResult.text =number
-       operator=true
-       btnAcControl=false
-       btnDel.isClickable=true
-       btnEqualsControl=false
+        when{
+            number==null->{
+                number=value
+            }
+            btnEqualsControl->{
+                firstNumber =0.0
+                lastNumber=0.0
+                number= value
+            }
+            else->{
+                number+=value
+            }
+        }
+        textViewResult.text =number
+        operator=true
+        btnAcControl=false
+        btnDel.isClickable=true
+        btnEqualsControl=false
     }
 
 
     private fun plus(){
-     lastNumber = (textViewResult.text.toString()).toDouble()
+        lastNumber = (textViewResult.text.toString()).toDouble()
         firstNumber+=lastNumber
         textViewResult.text=myFormatter.format(firstNumber)
         dot=true
     }
     private fun minus(){
-      if (firstNumber==0.0){
-          firstNumber = (textViewResult.text.toString()).toDouble()
-      }else{
-          lastNumber = (textViewResult.text.toString()).toDouble()
-          firstNumber -= lastNumber
-      }
+        if (firstNumber==0.0){
+            firstNumber = (textViewResult.text.toString()).toDouble()
+        }else{
+            lastNumber = (textViewResult.text.toString()).toDouble()
+            firstNumber -= lastNumber
+        }
         textViewResult.text=myFormatter.format(firstNumber)
         dot=true
     }
