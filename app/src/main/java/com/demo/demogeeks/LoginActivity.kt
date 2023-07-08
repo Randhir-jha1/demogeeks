@@ -1,5 +1,6 @@
 package com.demo.demogeeks
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
     private fun initUi(){
-       // edtEmail= findViewById(R.id.edtEmail)
+        edtEmail= findViewById(R.id.edtEmail)
         edtPass= findViewById(R.id.edtPassword)
         SignIn= findViewById(R.id.SignIn)
     }
@@ -32,11 +33,30 @@ class LoginActivity : AppCompatActivity() {
         SignIn.setOnClickListener(){
             strEmail= edtEmail.text.toString()
             strPassword= edtPass.text.toString()
-             if(!checkCondition()
-             ){
-                 Toast.makeText(this,strEmail+" "+strPassword,Toast.LENGTH_LONG).show()
+//             if(checkCondition()
+//             ){
+//                 //Toast.makeText(this,strEmail+" "+strPassword,Toast.LENGTH_LONG).show()
+//
+//             }
 
-             }
+            //Simple move from one activity to other
+
+            //            val intent= Intent(this@LoginActivity,IntentDemoActivity::class.java)
+//                 startActivity(intent)
+            //Pass value to other Activity
+
+
+//            val intent= Intent(this@LoginActivity,IntentDemoActivity::class.java)
+//            intent.putExtra("Email",strEmail)
+//            intent.putExtra("Password",strPassword)
+//            startActivity(intent)
+
+            // Paassing dataclass from one activity to Another
+
+            val students = Students("Randhir",28)
+            val intent= Intent(this@LoginActivity,IntentDemoActivity::class.java)
+             intent.putExtra("studentData",students)
+            startActivity(intent)
         }
 
 
