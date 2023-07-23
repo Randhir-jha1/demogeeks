@@ -15,8 +15,20 @@
         android:theme="@style/Theme.DemoGeeks"
         tools:targetApi="31">
         <activity
-            android:name=".classsix.SQLViewActivity"
-            android:exported="true" >
+            android:name=".classtenth.TabFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".classtenth.NavigationDrawerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".classtenth.BasicDynamicFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".classtenth.BasicStaticFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".classtenth.BottomNavigationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,13 +36,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".classsix.SQLViewActivity"
+            android:exported="true" />
+        <activity
             android:name=".classsix.SqlAddActivity"
             android:exported="false" />
         <activity
             android:name=".classsix.UploadStorageActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".classsix.AddRealtimeActivity"
             android:exported="false" />
